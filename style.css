@@ -30,5 +30,9 @@
 body {
   margin: 0;
   padding-top: 60px;
-  background-image: gold-car.jpeg;
+  background-image: url("gold-car.jpeg");
+  bacground-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachmet: fixed;
 }
