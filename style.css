@@ -18,6 +18,7 @@
 .links-nav a:hover {
   color: #ffd700;
   background-color: #91918c;
+  transition: 0.1s;
 }
 body {
 
