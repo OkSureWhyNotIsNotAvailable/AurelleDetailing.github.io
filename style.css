@@ -2,26 +2,32 @@
   display: flex;
   list-style: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  justify-content: space-between;
+  top: 10px;
+  left: 20px;
+  width: auto;
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 10px 15px;
+  margin: 0;
   background-color: #757571;
+  border-radius: 8px;
+  gap: 20px;
+  box-sizing: border-box;
 }
+
 .links-nav a {
   color: #ffffff;
   background-color: #757571;
   transition: 0.3s ease;
+  text-decoration: none;
 }
+
 .links-nav a:hover {
   color: #ffd700;
   background-color: #91918c;
 }
+
 body {
   margin: 0;
-  padding-top: 80px;
+  padding-top: 60px;
 }
-
