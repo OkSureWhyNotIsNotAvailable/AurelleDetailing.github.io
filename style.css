@@ -1,7 +1,7 @@
 .links-nav {
 display: flex;
   list-style: none;
-  position: fiexd;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
 }
@@ -12,5 +12,5 @@ display: flex;
   color: ffd700;
 }
 body {
-  background:
+  background-color: 
 }
