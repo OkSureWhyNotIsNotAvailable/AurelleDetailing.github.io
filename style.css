@@ -1,4 +1,13 @@
 .links-nav {
 display: flex;
   list-style: none;
+  position: fiexd;
+  justify-content: space-between;
+  align-items: center;
+}
+.links-nav a {
+  color: #ffffff;
+}
+.links-nav a:hover {
+  color: ffd700;
 }
