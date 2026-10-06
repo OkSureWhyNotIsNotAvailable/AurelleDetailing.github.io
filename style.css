@@ -14,7 +14,7 @@
 .links-nav a {
   color: #ffffff;
   background-color: #757571;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 .links-nav a:hover {
   color: #ffd700;
