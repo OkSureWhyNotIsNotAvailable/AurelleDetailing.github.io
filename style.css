@@ -21,5 +21,7 @@
   background-color: #91918c;
 }
 body {
-
+  margin: 0;
+  padding-top: 80px;
 }
+
