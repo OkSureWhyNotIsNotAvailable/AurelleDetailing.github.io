@@ -9,9 +9,11 @@
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
+  background-color: #757571;
 }
 .links-nav a {
   color: #ffffff;
+  background-color: #757571;
 }
 .links-nav a:hover {
   color: #ffd700;
