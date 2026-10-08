@@ -1,9 +1,7 @@
 .links-nav {
   display: flex;
   list-style: none;
-  position: fixed;
-  top: 10px;
-  left: 20px;
+  position: absolute;
   width: fit-content;
   justify-content: flex-start;
   align-items: center;
