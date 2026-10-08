@@ -79,7 +79,7 @@ body {
   font-weight: 700;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.04em;
-  margin-left: 50px;
+  margin-left: 120px;
   margin-top: 30px;
 }
 
@@ -87,7 +87,7 @@ body {
   color: #f5efe6;
   font-size: 22px;
   font-family: 'Georgia', serif;
-  margin-left: 50px;
+  margin-left: 120px;
   max-width: 700px;
   line-height: 1.6;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
