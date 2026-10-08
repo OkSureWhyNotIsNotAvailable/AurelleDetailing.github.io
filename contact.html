@@ -193,7 +193,7 @@
 
         <div id="status" class="status" aria-live="polite"></div>
 
-        <form id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="form-row">
                 <div class="field">
                     <label for="name">Full Name</label>
@@ -220,7 +220,7 @@
 
             <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message-text" name="message" placeholder="Tell us about your vehicle and what you need..." required></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your vehicle and what you need..." required></textarea>
             </div>
 
             <button type="submit">Send Inquiry</button>
@@ -236,63 +236,40 @@
     <script>
         const form = document.getElementById('contactForm');
         const status = document.getElementById('status');
-        const emailAddress = 'hello@aurelledetailing.com';
-        const phoneNumber = '+16575434443';
 
         function showStatus(message, type) {
             status.textContent = message;
             status.className = 'status visible ' + type;
         }
 
-        function buildInquiryText(formData) {
-            const name = formData.get('name') || 'Not provided';
-            const email = formData.get('email') || 'Not provided';
-            const phone = formData.get('phone') || 'Not provided';
-            const service = formData.get('service') || 'Not provided';
-            const message = formData.get('message') || 'Not provided';
-
-            return [
-                'Aurelle Detailing Inquiry',
-                '------------------------',
-                'Name: ' + name,
-                'Email: ' + email,
-                'Phone: ' + phone,
-                'Service: ' + service,
-                '',
-                'Message:',
-                message
-            ].join('\n');
-        }
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
             const formData = new FormData(form);
-            const inquiryText = buildInquiryText(formData);
-            const encodedSubject = encodeURIComponent('Aurelle Detailing Inquiry');
-            const encodedBody = encodeURIComponent(inquiryText);
-            const mailtoUrl = 'mailto:' + emailAddress + '?subject=' + encodedSubject + '&body=' + encodedBody;
-            const smsUrl = 'sms:' + phoneNumber + '?body=' + encodeURIComponent('New Aurelle Detailing inquiry:\n\n' + inquiryText);
-
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.textContent = 'Sending...';
 
             try {
-                window.location.href = mailtoUrl;
-                setTimeout(function () {
-                    window.location.href = smsUrl;
-                }, 250);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                showStatus('Your email app and text app were opened with the inquiry details.', 'success');
-                form.reset();
+                if (response.ok) {
+                    showStatus('Thanks! Your inquiry was sent successfully.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
             } catch (error) {
-                showStatus('Something went wrong while preparing your inquiry. Please call or email us directly.', 'error');
+                showStatus('There was a problem sending your message. Please email or call us directly.', 'error');
             } finally {
-                setTimeout(function () {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Inquiry';
-                }, 800);
+                button.disabled = false;
+                button.textContent = 'Send Inquiry';
             }
         });
     </script>
