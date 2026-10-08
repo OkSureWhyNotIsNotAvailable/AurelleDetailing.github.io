@@ -31,6 +31,9 @@
             padding: 12px 18px;
             z-index: 1000;
             backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .links-nav {
@@ -41,6 +44,7 @@
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            flex: 1;
         }
 
         .links-nav a {
@@ -56,6 +60,33 @@
         .links-nav a:hover {
             color: #f0d39a;
             text-decoration: underline;
+            opacity: 1;
+        }
+
+        .nav-side {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+            padding-left: 20px;
+        }
+
+        .nav-side a {
+            text-decoration: none;
+            color: #d4af78;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease, opacity 0.2s ease;
+            opacity: 0.85;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 120, 0.3);
+        }
+
+        .nav-side a:hover {
+            color: #f0d39a;
+            border-color: rgba(240, 211, 154, 0.5);
             opacity: 1;
         }
 
@@ -235,10 +266,23 @@
 
             nav {
                 padding: 10px 16px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .links-nav {
+                flex: unset;
+            }
+
+            .nav-side {
+                margin-left: 0;
+                padding-left: 0;
+                width: 100%;
+                justify-content: center;
             }
 
             .main-content {
-                padding: 100px 24px 24px;
+                padding: 140px 24px 24px;
             }
         }
     </style>
@@ -251,6 +295,9 @@
             <li><a href="products.html">Products</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
+        <div class="nav-side">
+            <a href="Questions%3F">Questions?</a>
+        </div>
     </nav>
 
     <div class="main-content">
