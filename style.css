@@ -7,6 +7,10 @@ nav {
   z-index: 1000;
   padding: 0;
   margin: 0;
+  background: rgba(12, 12, 12, 0.82);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
 
 .links-nav {
@@ -15,47 +19,76 @@ nav {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 10px 15px;
+  padding: 18px 24px;
   margin: 0;
-  background-color: #757571;
-  gap: 40px;
+  background: rgba(17, 17, 17, 0.4);
+  gap: 46px;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
 }
 
 .links-nav a {
-  color: #ffffff;
-  background-color: #757571;
-  transition: 0.3s ease;
+  color: #f5f1e8;
+  background: transparent;
+  transition: all 0.3s ease;
   text-decoration: none;
   font-family: 'Arial', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 0;
+  position: relative;
+}
+
+.links-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.3s ease;
 }
 
 .links-nav a:hover {
-  color: #ffd700;
-  background-color: #91918c;
+  color: #d4af37;
+}
+
+.links-nav a:hover::after {
+  width: 100%;
 }
 
 body {
   margin: 0;
-  padding-top: 60px;
-  background-image: url("gold-car.jpeg");
+  padding-top: 90px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), url("gold-car.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   font-family: 'Georgia', serif;
+  color: #f7f3ec;
 }
 
 #main-head {
-  color: white;
+  color: #f7f3ec;
   font-family: 'Georgia', serif;
-  font-size: 48px;
+  font-size: 52px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.04em;
+  margin-left: 50px;
+  margin-top: 30px;
 }
 
 #intro {
-  color: white;
-  font-size: 20px;
+  color: #f5efe6;
+  font-size: 22px;
   font-family: 'Georgia', serif;
+  margin-left: 50px;
+  max-width: 700px;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
