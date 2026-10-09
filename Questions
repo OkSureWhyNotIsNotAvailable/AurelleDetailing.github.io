@@ -283,7 +283,7 @@
 
             <div id="status" class="status" aria-live="polite"></div>
 
-            <form id="questionsForm" action="https://formspree.io/f/mwppkxlk" method="POST">
+            <form id="questionsForm" action="https://formspree.io/f/myekwlyn" method="POST">
                 <div class="form-row">
                     <div class="field">
                         <label for="name">Full Name</label>
