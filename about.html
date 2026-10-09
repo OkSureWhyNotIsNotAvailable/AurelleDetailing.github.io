@@ -8,6 +8,24 @@
   <style>
     body {
       padding-top: 90px;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    nav {
+      position: relative;
+      z-index: 10;
     }
 
     .about-container {
@@ -145,7 +163,7 @@
       <div class="about-divider"></div>
       <p>We started as a group of kids with a shared love for cars and a dream of building something meaningful together.</p>
       <div class="about-divider"></div>
-      <p>I'll admit we started just for the idea of getting to hang out and money at the same time, however, we now recognize that it is also our responsibility to help brighten the community just like the cars we wash.</p>
+      <p>I'll admit we started just for the idea of getting to hang out and money at the same time, however, we now recognize that it is also our responsibility to help brighten the community jus[...]
     </main>
   </div>
 </body>
