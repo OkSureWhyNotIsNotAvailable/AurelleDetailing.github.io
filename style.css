@@ -72,23 +72,106 @@ body {
   color: #f7f3ec;
 }
 
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+  padding: 60px 24px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+}
+
 #main-head {
   color: #f7f3ec;
   font-family: 'Georgia', serif;
-  font-size: 52px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.04em;
-  margin-left: 120px;
-  margin-top: 30px;
+  margin: 0 0 24px 0;
 }
 
 #intro {
   color: #f5efe6;
-  font-size: 22px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
   font-family: 'Georgia', serif;
-  margin-left: 120px;
   max-width: 700px;
-  line-height: 1.6;
+  margin: 0 auto 40px;
+  line-height: 1.8;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.luxury-btn {
+  display: inline-block;
+  padding: 16px 42px;
+  color: #f5d7a1;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(212, 175, 55, 0.8);
+  background: rgba(17, 17, 17, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 10px 25px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(212,175,55,0.02));
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 0;
+}
+
+.luxury-btn:hover {
+  color: #fff5d6;
+  border-color: #f0d39a;
+  box-shadow: 0 14px 32px rgba(212, 175, 55, 0.22);
+}
+
+.luxury-btn:hover::before {
+  transform: translateX(0);
+}
+
+.luxury-btn {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  #main-head {
+    font-size: 2.2rem;
+    margin-top: 20px;
+  }
+
+  #intro {
+    font-size: 1rem;
+    margin: 0 0 30px 0;
+  }
+
+  .luxury-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
 }
