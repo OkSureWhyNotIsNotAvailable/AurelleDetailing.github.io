@@ -11,8 +11,6 @@
       --ink: #1d1d1d;
       --muted: #5e5e5e;
       --accent: #c89b3c;
-      --accent-dark: #9b7426;
-      --shadow: rgba(0, 0, 0, 0.08);
       --line: #e8e1d8;
     }
 
@@ -24,193 +22,44 @@
       background: linear-gradient(180deg, #f8f4ef 0%, #f1ece5 100%);
       color: var(--ink);
       line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
     }
 
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, rgba(16,16,16,0.75), rgba(60,42,18,0.75)),
-                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      border-radius: 22px;
-      padding: 90px 30px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 18px 45px var(--shadow);
-      margin-bottom: 40px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      letter-spacing: 1px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      margin: 14px auto 0;
-      max-width: 700px;
-      color: rgba(255,255,255,0.9);
-      font-size: 1.1rem;
-    }
-
-    .section {
-      background: rgba(255,255,255,0.72);
+    .story {
+      max-width: 850px;
+      background: rgba(255,255,255,0.8);
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 32px 30px;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-      backdrop-filter: blur(2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      padding: 40px 32px;
     }
 
-    .section h2 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--ink);
-      position: relative;
-      display: inline-block;
     }
 
-    .section h2::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 3px;
-      margin-top: 10px;
-      background: var(--accent);
-      border-radius: 999px;
-    }
-
-    .section p {
+    p {
       margin: 0 0 16px;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 16px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--accent-dark);
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .stat {
-      background: linear-gradient(135deg, #1f1f1f, #3a2d16);
-      color: #fff;
-      border-radius: 16px;
-      padding: 26px 18px;
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 2rem;
-      color: #f4d18f;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.82);
-    }
-
-    @media (max-width: 640px) {
-      .page {
-        padding: 30px 16px 60px;
-      }
-
-      .hero {
-        padding: 70px 18px;
-      }
-
-      .section {
-        padding: 24px 18px;
-      }
+    p:last-child {
+      margin-bottom: 0;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <h1>About Aurelle Detailing</h1>
-      <p>Premium care for your vehicle, with attention to the details that make it stand out.</p>
-    </header>
-
-    <section class="section">
-      <h2>Who We Are</h2>
-      <p>Aurelle Detailing is dedicated to bringing out the best in every vehicle we work on. Whether it is a daily driver or a luxury finish, we treat each car with precision, care, and pride.</p>
-      <p>Our goal is simple: deliver a clean, refined, and impressive result that keeps your vehicle looking its best.</p>
-    </section>
-
-    <section class="section">
-      <h2>What We Do</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Interior Detailing</h3>
-          <p>Thorough cleaning and restoration for upholstery, trim, carpets, and every interior surface.</p>
-        </article>
-        <article class="card">
-          <h3>Exterior Care</h3>
-          <p>Paint correction, finishing, and protection that restore shine and enhance long-term value.</p>
-        </article>
-        <article class="card">
-          <h3>Vehicle Protection</h3>
-          <p>Premium protection solutions to preserve your vehicle's appearance and keep it looking fresh.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Why Customers Choose Us</h2>
-      <p>At Aurelle Detailing, we focus on quality workmanship, reliable service, and a finish that reflects the care and attention behind every detail.</p>
-      <div class="stats">
-        <div class="stat">
-          <strong>500+</strong>
-          <span>Vehicles Detailed</span>
-        </div>
-        <div class="stat">
-          <strong>10+</strong>
-          <span>Years Experience</span>
-        </div>
-        <div class="stat">
-          <strong>100%</strong>
-          <span>Customer Focus</span>
-        </div>
-      </div>
-    </section>
-  </div>
+  <main class="story">
+    <h1>About Aurelle Detailing</h1>
+    <p>We started as a group of kids with a shared love for cars and a dream of building something meaningful together.</p>
+    <p>What began as passion, hard work, and a lot of learning grew into a business built on care, craftsmanship, and pride in every vehicle we touch.</p>
+  </main>
 </body>
 </html>
