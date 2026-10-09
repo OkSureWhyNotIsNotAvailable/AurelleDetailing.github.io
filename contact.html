@@ -6,17 +6,19 @@
     <title>Contact Us - Aurelle Detailing</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        * { box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
                         url('https://images.unsplash.com/...') center/cover no-repeat;
-            color: #fff;
         }
 
         nav {
@@ -51,12 +53,40 @@
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: 0.02em;
+            transition: color 0.2s ease, opacity 0.2s ease;
             opacity: 0.95;
         }
 
         .links-nav a:hover {
             color: #f0d39a;
             text-decoration: underline;
+            opacity: 1;
+        }
+
+        .nav-side {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+            padding-left: 20px;
+        }
+
+        .nav-side a {
+            text-decoration: none;
+            color: #d4af78;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease, opacity 0.2s ease;
+            opacity: 0.85;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 120, 0.3);
+        }
+
+        .nav-side a:hover {
+            color: #f0d39a;
+            border-color: rgba(240, 211, 154, 0.5);
             opacity: 1;
         }
 
@@ -73,6 +103,7 @@
             width: 100%;
             max-width: 680px;
             background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 18px;
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
             padding: 42px 36px;
@@ -119,7 +150,8 @@
             margin-bottom: 8px;
         }
 
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             background: #fff;
             border: 1px solid #d9d9d9;
@@ -127,9 +159,11 @@
             padding: 13px 14px;
             font-size: 1rem;
             color: #222;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: #b28b39;
             box-shadow: 0 0 0 3px rgba(178, 139, 57, 0.12);
@@ -150,12 +184,19 @@
             font-weight: 700;
             letter-spacing: 0.03em;
             cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 10px 25px rgba(178, 139, 57, 0.28);
         }
 
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 14px 30px rgba(178, 139, 57, 0.32);
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .contact-info {
@@ -218,6 +259,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .links-nav {
+                gap: 12px 16px;
+                font-size: 0.9rem;
+            }
+
             nav {
                 padding: 10px 16px;
                 flex-direction: column;
@@ -225,9 +271,14 @@
             }
 
             .links-nav {
-                gap: 12px 16px;
-                font-size: 0.9rem;
                 flex: unset;
+            }
+
+            .nav-side {
+                margin-left: 0;
+                padding-left: 0;
+                width: 100%;
+                justify-content: center;
             }
 
             .main-content {
@@ -255,7 +306,7 @@
 
             <div id="status" class="status" aria-live="polite"></div>
 
-            <form id="contactForm" action="https://formspree.io/f/xyekwbyq" method="POST" target="_self">
+            <form id="contactForm" action="https://formspree.io/f/xyekwbyq" method="POST">
                 <div class="form-row">
                     <div class="field">
                         <label for="name">Full Name</label>
@@ -323,11 +374,11 @@
                 });
 
                 if (response.ok) {
-                    window.location.href = 'thank-you.html';
-                    return;
+                    showStatus('Thanks! Your inquiry was sent successfully.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Submission failed');
                 }
-
-                throw new Error('Submission failed');
             } catch (error) {
                 showStatus('There was a problem sending your message. Please email or call us directly.', 'error');
             } finally {
@@ -338,107 +389,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
