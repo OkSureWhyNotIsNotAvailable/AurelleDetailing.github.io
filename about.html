@@ -4,144 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Aurelle Detailing</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --bg: #f5f1ea;
-      --panel: #ffffff;
-      --ink: #1d1d1d;
-      --muted: #5e5e5e;
-      --accent: #c89b3c;
-      --line: #e8e1d8;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #f8f4ef 0%, #f1ece5 100%);
-      color: var(--ink);
-      line-height: 1.7;
+      padding-top: 90px;
     }
 
-    nav {
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-brand {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-links a.active {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px 100px;
-      min-height: calc(100vh - 200px);
+    .about-container {
+      min-height: calc(100vh - 90px);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 60px 24px 100px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), url("gold-car.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    .story {
+    .about-content {
       max-width: 900px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-      padding: 60px 48px;
+      text-align: center;
     }
 
-    h1 {
-      margin: 0 0 32px;
+    .about-content h1 {
+      color: #f0d8a1;
+      font-family: 'Georgia', serif;
       font-size: clamp(2.8rem, 6vw, 4.2rem);
-      color: var(--ink);
-      line-height: 1.2;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.04em;
+      margin: 0 0 48px 0;
     }
 
-    p {
-      margin: 0 0 28px;
-      color: var(--muted);
+    .about-content p {
+      color: #f1dfb6;
+      font-family: 'Georgia', serif;
       font-size: clamp(1.3rem, 2vw, 1.8rem);
-      line-height: 1.8;
+      line-height: 1.9;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      margin: 0 0 32px 0;
+      letter-spacing: 0.01em;
     }
 
-    p:last-child {
+    .about-content p:last-child {
       margin-bottom: 0;
     }
 
-    @media (max-width: 640px) {
-      .nav-links {
-        gap: 16px;
-        font-size: 0.9rem;
+    @media (max-width: 768px) {
+      .about-container {
+        padding: 40px 20px 60px;
       }
 
-      .page {
-        padding: 40px 16px 60px;
+      .about-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 32px;
       }
 
-      .story {
-        padding: 40px 24px;
+      .about-content p {
+        font-size: 1.1rem;
+        margin-bottom: 24px;
       }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-container">
-      <a href="/" class="nav-brand">Aurelle Detailing</a>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html" class="active">About</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
+    <ul class="links-nav">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Thecontact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-side">
+      <a href="questions.html" id="Questions">Questions?</a>
     </div>
   </nav>
 
-  <div class="page">
-    <main class="story">
+  <div class="about-container">
+    <main class="about-content">
       <h1>About Aurelle Detailing</h1>
       <p>We started as a group of kids with a shared love for cars and a dream of building something meaningful together.</p>
       <p>What began as passion, hard work, and a lot of learning grew into a business built on care, craftsmanship, and pride in every vehicle we touch.</p>
