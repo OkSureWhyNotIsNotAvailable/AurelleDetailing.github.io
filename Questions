@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions - Aurelle Detailing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                        url('https://images.unsplash.com/...') center/cover no-repeat;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(20, 20, 20, 0.72);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 12px 18px;
+            z-index: 1000;
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .links-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .links-nav a {
+            text-decoration: none;
+            color: #d4af78;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease, opacity 0.2s ease;
+            opacity: 0.95;
+        }
+
+        .links-nav a:hover {
+            color: #f0d39a;
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        .nav-side {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+            padding-left: 20px;
+        }
+
+        .nav-side a {
+            text-decoration: none;
+            color: #d4af78;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease, opacity 0.2s ease;
+            opacity: 0.85;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 120, 0.3);
+        }
+
+        .nav-side a:hover {
+            color: #f0d39a;
+            border-color: rgba(240, 211, 154, 0.5);
+            opacity: 1;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 120px 24px 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+            padding: 42px 36px;
+            backdrop-filter: blur(6px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 3vw, 2.6rem);
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        .header p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #2a2a2a;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 10px;
+            padding: 13px 14px;
+            font-size: 1rem;
+            color: #222;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #b28b39;
+            box-shadow: 0 0 0 3px rgba(178, 139, 57, 0.12);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 22px;
+            background: linear-gradient(135deg, #b28b39, #d3a95b);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 10px 25px rgba(178, 139, 57, 0.28);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(178, 139, 57, 0.32);
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            display: none;
+            margin-bottom: 16px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.96rem;
+        }
+
+        .status.visible {
+            display: block;
+        }
+
+        .status.success {
+            background: #e8f7ed;
+            color: #1f7a45;
+            border: 1px solid #bfe8cc;
+        }
+
+        .status.error {
+            background: #fdecea;
+            color: #b3261e;
+            border: 1px solid #f4c7c3;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 28px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .links-nav {
+                gap: 12px 16px;
+                font-size: 0.9rem;
+            }
+
+            nav {
+                padding: 10px 16px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .links-nav {
+                flex: unset;
+            }
+
+            .nav-side {
+                margin-left: 0;
+                padding-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 140px 24px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="links-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-side">
+            <a href="Questions%3F">Questions?</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <h1>Have a Question?</h1>
+                <p>We'd love to hear from you. Send us your questions and we'll get back to you soon.</p>
+            </div>
+
+            <div id="status" class="status" aria-live="polite"></div>
+
+            <form id="questionsForm" action="https://formspree.io/f/mwppkxlk" method="POST">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="question">Your Question</label>
+                    <textarea id="question" name="message" placeholder="Ask us anything..." required></textarea>
+                </div>
+
+                <button type="submit">Send Question</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('questionsForm');
+        const status = document.getElementById('status');
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = 'status visible ' + type;
+        }
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showStatus('Thanks! Your question was sent successfully.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                showStatus('There was a problem sending your question. Please try again.', 'error');
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Send Question';
+            }
+        });
+    </script>
+</body>
+</html>
