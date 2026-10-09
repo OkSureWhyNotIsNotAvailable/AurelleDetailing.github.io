@@ -160,7 +160,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 90px);
-  padding: 60px 24px;
+  padding: 80px 40px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), url("car-wash.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -170,7 +170,7 @@ body {
 
 .services-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   max-width: 700px;
 }
 
@@ -193,17 +193,19 @@ body {
 
 .services-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 40px;
-  max-width: 1000px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  max-width: 1100px;
   width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .service-card {
   background: rgba(25, 25, 25, 0.65);
   border: 1px solid rgba(212, 175, 55, 0.4);
   border-radius: 12px;
-  padding: 40px 32px;
+  padding: 45px 38px;
   text-align: center;
   transition: all 0.4s ease;
   position: relative;
@@ -308,6 +310,18 @@ body {
   box-shadow: 0 20px 56px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
+@media (max-width: 1024px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 30px;
+  }
+
+  .services {
+    padding: 60px 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
@@ -338,6 +352,7 @@ body {
   .services-container {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 0 16px;
   }
 
   .service-card {
